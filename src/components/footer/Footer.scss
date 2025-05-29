@@ -1,0 +1,24 @@
+.footer {
+    display         : flex;
+    justify-content : center;
+    background-color: rgb(0, 21, 41);
+    min-height      : 100px;
+
+    p {
+        margin    : 0;
+        color     : #ffff;
+        text-align: center;
+    }
+
+    h3 {
+        text-align    : center;
+        color         : #ffff;
+        vertical-align: middle;
+        margin        : 0;
+        width         : 100%;
+    }
+}
+
+:where(.css-dev-only-do-not-override-vrrzze).ant-badge.ant-badge-status .ant-badge-status-text {
+    color: azure !important;
+}

@@ -1,0 +1,24 @@
+.menu {
+    display    : flex;
+    align-items: center;
+
+    &__logo {
+        display     : flex;
+        margin-right: 20px;
+
+
+        img {
+            width: 40px;
+        }
+    }
+
+    .switch {
+        display        : flex;
+        justify-content: center;
+        margin-right   : 20px;
+    }
+}
+
+.menu-top {
+    justify-content: center;
+}

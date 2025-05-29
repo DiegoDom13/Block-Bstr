@@ -1,0 +1,34 @@
+.modal-video {
+    width  : 100% !important;
+    height : 100% !important;
+    padding: 0 !important;
+
+    .ant-modal-content {
+        width           : 100%;
+        height          : 100%;
+        background-color: rgba(0, 0, 0, 0.432) !important;
+        position        : absolute;
+
+        .ant-modal-close {
+            color: aliceblue;
+
+            span {
+                font-size   : 40px;
+                margin-right: 20px;
+                margin-top  : 20px;
+            }
+        }
+
+        .ant-modal-body {
+            height         : 100% !important;
+            display        : flex;
+            align-items    : center;
+            justify-content: center;
+
+            div {
+                width : 90% !important;
+                height: 90% !important;
+            }
+        }
+    }
+}

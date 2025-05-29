@@ -1,0 +1,55 @@
+.slider-movies {
+    height: 50vh;
+
+    &__movie {
+        height             : 50vh;
+        background-position: 100% 20%;
+        background-size    : 100vw;
+        background-repeat  : no-repeat;
+    }
+
+    &__info {
+        display        : flex;
+        flex-direction : column;
+        justify-content: end; // Centra verticalmente en el contenedor
+        align-items    : center; // Centra horizontalmente en el contenedor
+        height         : 100%;
+        padding-bottom : 2%;
+    }
+
+    &__info-cont {
+        background-color: rgba(0, 21, 41, 0.493);
+        color           : aliceblue;
+        display         : flex;
+        flex-direction  : column;
+        align-items     : center; // Centra los elementos horizontalmente
+        justify-content : center; // Centra los elementos verticalmente
+        text-align      : center;
+        width           : 40%; // Si necesitas que ocupe todo el ancho del contenedor
+        padding         : 1%;
+        border-radius   : 15px;
+
+    }
+
+    .slider-movies &__info-cont p span:first-child {
+        font-size    : 18px;
+        /* Tamaño del texto de la calificación */
+        font-weight  : bold;
+        margin-bottom: 5px;
+        /* Espaciado entre la calificación y las estrellas */
+        display      : block;
+        /* Fuerza que el texto de la calificación ocupe toda la línea */
+    }
+
+    .slider-movies &__info-cont p span:last-child {
+        display        : inline-flex;
+        /* Maneja las estrellas en fila */
+        justify-content: center;
+        /* Centra las estrellas horizontalmente */
+    }
+}
+
+.slick-slide[aria-hidden="true"] * {
+    visibility    : visible !important;
+    pointer-events: auto !important;
+}
