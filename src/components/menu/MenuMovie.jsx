@@ -1,26 +1,32 @@
 import React, { useState } from "react";
 import { Menu as MenuTop, Switch } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
 
 import './Menu.scss'
 
 export default function Menu(props) {
     const { theme, changeTheme } = props
-    const [current, setCurrent] = useState('1');
+    const location = useLocation();
 
-    const items = [
-        { key: '1', label: <Link to="/">Inicio</Link> },
-        { key: '2', label: <Link to="/movies/:id">Peliculas</Link> },
-        { key: '3', label: <Link to="/new-movies">Lanzamientos nuevos</Link> },
-        { key: '4', label: <Link to="/popularBuster">Populares</Link> },
-        { key: '5', label: <Link to="/search-Movie">Buscar</Link> },
-    ]
-
-    const handleClick = (e) => {
-        setCurrent(e.key); // 🟢 Guarda el ítem seleccionado
+    // 🔹 Mapeo de rutas a claves del menú
+    const getKeyFromPath = (pathname) => {
+        if (pathname === '/') return '1';
+        if (pathname === '/new-movies') return '2';
+        if (pathname === '/popularBuster') return '3';
+        if (pathname === '/search-Movie') return '4';
+        return ''; // Si no coincide con ninguna, no selecciona nada
     };
 
+    const currentKey = getKeyFromPath(location.pathname);
+ 
+    const items = [
+        { key: '1', label: <Link to="/">Inicio</Link> },
+        { key: '2', label: <Link to="/new-movies">Lanzamientos nuevos</Link> },
+        { key: '3', label: <Link to="/popularBuster">Populares</Link> },
+        { key: '4', label: <Link to="/search-Movie">Buscar</Link> },
+    ]
+    
     return (
 
         <div className="menu">
@@ -37,9 +43,8 @@ export default function Menu(props) {
             <MenuTop
                 className="menu-top"
                 theme={theme}
-                onClick={handleClick}
                 mode="horizontal"
-                selectedKeys={[current]}
+                selectedKeys={[currentKey]}
                 items={items}
                 style={{ width: "100%", lineHeight: "64px" }}
             >

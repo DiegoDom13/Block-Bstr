@@ -14,10 +14,11 @@ import './movie.scss';
 
 export default function Movie() {
     const { id } = useParams();
+    const options = useOptions();
 
-    console.log(id);
+    console.log("id Recibido", id);
 
-    const movieInfo = useFetch(`${URL_API}/movie/${id}?language=es-ES`, useOptions());
+    const movieInfo = useFetch(`${URL_API}/movie/${id}?language=es-ES`, options);
 
     console.log(movieInfo);
 
@@ -65,8 +66,6 @@ function MovieInfo(props) {
     const options = useOptions();
     const videoMovie = useFetch(`${URL_API}/movie/${id}/videos?language=es-ES`, options);
 
-    console.log();
-
 
     const openModal = () => setIsVisibleModal(true);
     const closeModal = () => setIsVisibleModal(false);
@@ -96,6 +95,7 @@ function MovieInfo(props) {
         }
     };
 
+    
     return (
         <>
             <div className="movie__info-header">

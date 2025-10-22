@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Modal from "antd/es/modal/Modal";
+import { Modal } from "antd";
 import ReactPlayer from "react-player";
 
 import './ModalVideo.scss';
@@ -11,7 +11,7 @@ export default function ModalVideo(props) {
     useEffect(() => {
         switch (videoPlatform) {
             case "YouTube":
-                setUrlVideo(`https://youtu.be/${videoKey}`);
+                setUrlVideo(`https://www.youtube.com/watch?v=${videoKey}`);
                 break;
             case "Vimeo":
                 setUrlVideo(`https://vimeo.com/${videoKey}`);
@@ -21,7 +21,7 @@ export default function ModalVideo(props) {
         }
     }, [videoKey, videoPlatform]);
 
-
+    console.log(urlVideo)
     return (
         <Modal
             className="modal-video"
@@ -30,7 +30,8 @@ export default function ModalVideo(props) {
             onCancel={close}
             footer={false}
         >
-            <ReactPlayer url={urlVideo} controls />
+            <ReactPlayer url={urlVideo} controls/>
+
 
         </Modal>
     )

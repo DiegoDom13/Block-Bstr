@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from 'antd';
-import { URL_API, token } from "../utils/constants";
+import { URL_API } from "../utils/constants";
 import { useOptions } from "../hooks/useOptions";
 import Loading from "../components/loading/Loading";
 import MovieCatalog from "../components/MovieCatalog/MovieCatalog";
+import PaginationMovies from "../components/pagination/Pagination";
+
+import './new-movies.scss';
 
 export default function NewMovies() {
     const [movieList, setMovieList] = useState([]);
@@ -12,11 +15,14 @@ export default function NewMovies() {
 
     useEffect(() => {
         (async () => {
-            const response = await fetch(`${URL_API}/movie/now_playing?language=es-ES&page=1`, options);
+            const response = await fetch(`${URL_API}/movie/now_playing?language=es-ES&page=${page}`, options);
             const movies = await response.json()
             setMovieList(movies);
-        })()
+        })();
     }, [page])
+
+    const onChangePage = page => 
+        setPage(page);
 
     return (
         <Row>
@@ -25,14 +31,23 @@ export default function NewMovies() {
                     ¡Estrenos!
                 </h1>
             </Col>
-            {movieList.result ? (
-                <Col span={24}>
-                    <Row>
-                        <MovieCatalog movie={movieList} />
-                    </Row>
-                </Col>
+            {movieList.results ? (
+                <>
+                    <Col span="24">
+                        <Row className="container-movie-catalog">
+                            <MovieCatalog movies={movieList} />
+                        </Row>
+                    </Col>
+                    <Col span="24">
+                        <PaginationMovies 
+                            currentPage={movieList.page}
+                            totalItems={movieList.total_results}
+                            onChangePage={onChangePage}
+                        />
+                    </Col>
+                </>
             ) : (
-                <Col span={24}>
+                <Col span="24">
                     <Loading />
                 </Col>
             )}

@@ -14,7 +14,7 @@ export default function Footer() {
 
     const { loading, result, error } = useFetch(`${URL_API}/genre/movie/list?language=es-ES`, options)
 
-    console.log(result);
+    console.log("Resultados de generos footer", result);
 
     // Evita errores: Si result es null, usa un array vacío
     const genres = result?.genres || [];
@@ -35,7 +35,7 @@ export default function Footer() {
                     ) : genres.length > 0 ? (
                         <Space direction="horizontal" size="small" style={{ width: "100%", display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                             {genres.map((genero) => (
-                                <Badge text={genero.name} color="geekblue"></Badge>
+                                <Badge text={genero.name} color="white"></Badge>
                             ))}
                         </Space>
 

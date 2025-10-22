@@ -1,0 +1,37 @@
+.search {
+    z-index: 100;
+    margin-top: 1%;
+    margin-bottom: 1%;
+
+    h1 {
+        text-align: center;
+        font-size: 65px;
+    }
+
+    input {
+        text-align: center;
+        font-size: 20px;
+        height: auto;
+        border-bottom-left-radius: 15px;
+        border-top-right-radius: 15px;
+        box-shadow: -2px 2px 8px rgba(5, 10, 152, 0.503);
+    }
+}
+
+.no-results {
+  text-align: center;
+  background-color: #1c1c1c8b;
+  padding: 2rem;
+  min-height: calc(100vh - 39.8vh);
+  color: #fff;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #aaa;
+  }
+}

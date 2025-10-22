@@ -22,3 +22,7 @@
 .menu-top {
     justify-content: center;
 }
+
+:where(.css-dev-only-do-not-override-1odpy5d).ant-switch {
+    min-width: fit-content;
+}
